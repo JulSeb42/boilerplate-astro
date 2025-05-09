@@ -3,7 +3,6 @@ import { toast } from "react-toastify"
 import { emailRegex, passwordRegex } from "@julseb-lib/utils"
 import { Form, Input, InputCheck } from "components"
 import { PATHS, COMMON_TEXTS } from "data"
-import { authService } from "api"
 
 export const SignupForm = () => {
 	const [inputs, setInputs] = useState({
@@ -63,22 +62,6 @@ export const SignupForm = () => {
 			})
 			return
 		}
-
-		return await authService
-			.signup(inputs)
-			.then(res => {
-				console.log({ res })
-
-				if (saveEmail) {
-					localStorage.setItem("email", inputs.email)
-				}
-
-				toast("Your account has been created!", {
-					hideProgressBar: true,
-					autoClose: 500,
-				})
-			})
-			.catch(err => console.log(err))
 	}
 
 	return (
