@@ -1,0 +1,33 @@
+---
+import clsx from "clsx"
+import { SITE_DATA, PATHS, navLinks } from "data"
+
+const { pathname } = Astro.url
+
+const linkClasses =
+	"[&>a]:text-white [&>a]:hover:text-gray-300 [&>a]:active:text-gray-100"
+---
+
+<header
+	class={clsx(
+		"bg-blue-800 flex justify-between items-center-safe px-[5%] py-4 [&>a]:font-black",
+		linkClasses
+	)}
+>
+	<a href={PATHS.ROOT}>{SITE_DATA.NAME}</a>
+
+	<nav class={clsx("flex gap-4", linkClasses)}>
+		{
+			navLinks.map(link => (
+				<a
+					href={link.href}
+					class={clsx({
+						"font-black": link.href === pathname,
+					})}
+				>
+					{link.text}
+				</a>
+			))
+		}
+	</nav>
+</header>

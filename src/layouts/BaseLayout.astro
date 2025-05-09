@@ -1,0 +1,40 @@
+---
+import { SITE_DATA } from "data"
+import "styles/index.css"
+
+export interface IBaseLayout {
+	title: string
+	description?: string
+	keywords?: Array<string>
+	cover?: string
+}
+
+const { title, description, keywords, cover } = Astro.props as IBaseLayout
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<link rel="icon" type="image/svg+xml" href={SITE_DATA.FAVICON} />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | {SITE_DATA.NAME}</title>
+		<meta
+			name="description"
+			content={description ?? SITE_DATA.DESCRIPTION}
+		/>
+		<meta name="keywords" content={keywords?.join(", ")} />
+		<meta name="author" content={SITE_DATA.AUTHOR} />
+		<meta property="og:title" content={title} />
+		<meta property="og:type" content={SITE_DATA.TYPE} />
+		<meta property="og:image" content={cover ?? SITE_DATA.COVER} />
+		<meta property="og:site_name" content={SITE_DATA.NAME} />
+		<meta property="og:locale" content={SITE_DATA.LANGUAGE} />
+	</head>
+
+	<body>
+		<slot />
+	</body>
+</html>

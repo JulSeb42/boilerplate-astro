@@ -1,0 +1,19 @@
+---
+import { Page } from "layouts"
+import { Text, Button } from "components"
+---
+
+<Page title="Homepage">
+	<Text tag="h1">Hello World</Text>
+	<Button id="button-hello">Say Hello</Button>
+</Page>
+
+<script>
+	import { toast } from "react-toastify"
+
+	const button = document.getElementById("button-hello")
+
+	button?.addEventListener("click", () => {
+		toast("Hello")
+	})
+</script>

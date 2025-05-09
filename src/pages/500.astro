@@ -1,0 +1,14 @@
+---
+import { Page } from "layouts"
+import { Text } from "components"
+import { PATHS } from "data"
+---
+
+<Page title="500">
+	<Text tag="h1">Error 500</Text>
+
+	<Text>
+		An error occured, please come back later.
+		<a href={PATHS.ROOT}>Back to homepage.</a>
+	</Text>
+</Page>

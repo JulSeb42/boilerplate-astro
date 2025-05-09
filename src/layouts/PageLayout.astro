@@ -1,0 +1,66 @@
+---
+import clsx from "clsx"
+import { ToastContainer } from "react-toastify"
+import BaseLayout, { type IBaseLayout } from "./BaseLayout.astro"
+import Header from "./Header.astro"
+import type { MainSizes } from "types"
+
+interface IPage extends IBaseLayout {
+	isLoading?: boolean
+	noHeader?: boolean
+	noWrapper?: boolean
+	mainSize?: MainSizes
+}
+
+const {
+	title,
+	description,
+	keywords,
+	cover,
+	isLoading,
+	noHeader,
+	noWrapper,
+	mainSize = "default",
+} = Astro.props as IPage
+
+const genMainSize = {
+	default: "w-(--main-default)",
+	large: "w-(--main-large)",
+	form: "w-(--main-form)",
+}
+---
+
+<BaseLayout
+	title={title}
+	description={description}
+	keywords={keywords}
+	cover={cover}
+>
+	{
+		isLoading ? (
+			<div />
+		) : (
+			<>
+				{!noHeader && <Header />}
+
+				{noWrapper ? (
+					<slot />
+				) : (
+					<div class="flex justify-center gap-6 align-top min-h-fit px-6">
+						<main
+							class={clsx(
+								genMainSize[mainSize],
+								"py-12",
+								"flex flex-col gap-6"
+							)}
+						>
+							<slot />
+						</main>
+					</div>
+				)}
+			</>
+		)
+	}
+
+	<ToastContainer position="bottom-right" client:load />
+</BaseLayout>

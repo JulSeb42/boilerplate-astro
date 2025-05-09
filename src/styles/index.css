@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import "tailwindcss";
+
+/*====================== Common styles ======================*/
+
+html,
+body {
+	font-family: var(--font-family-body);
+	width: 100%;
+	min-height: 100vh;
+
+	&.light {
+		background-color: var(--color-white);
+		color: var(--color-black);
+	}
+
+	&.dark {
+		background-color: var(--color-black);
+		color: var(--color-white);
+	}
+}
+
+a,
+button {
+	cursor: pointer;
+	transition: all 200ms ease;
+
+	&:disabled {
+		cursor: not-allowed;
+	}
+}
+
+@theme {
+	--font-family-body: "Lato", sans-serif;
+	--font-family-code: monospace;
+
+	--overlay-black-50: rgba(0, 0, 0, 0.5);
+	--overlay-black-80: rgba(0, 0, 0, 0.8);
+	--overlay-white-50: rgba(255, 255, 255, 0.5);
+	--overlay-white-80: rgba(255, 255, 255, 0.8);
+	--overlay-gradient-black: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0) 0%,
+		rgba(0, 0, 0, 0.56) 100%
+	);
+	--overlay-gradient-white: linear-gradient(
+		180deg,
+		rgba(0, 0, 0, 0) 0%,
+		rgba(255, 255, 255, 0.35) 100%
+	);
+
+	--main-default: 600px;
+	--main-large: 800px;
+	--main-form: 400px;
+	/* --main-full: 100%; */
+	--aside-default: 250px;
+	--aside-small: 200px;
+}
+
+@layer utilities {
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+
+	.no-scrollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.overlay-black-50 {
+		background: var(--overlay-black-50);
+	}
+
+	.overlay-black-80 {
+		background: var(--overlay-black-80);
+	}
+
+	.overlay-white-50 {
+		background: var(--overlay-white-50);
+	}
+
+	.overlay-white-80 {
+		background: var(--overlay-white-80);
+	}
+
+	.overlay-gradient-black {
+		background: var(--overlay-gradient-black);
+	}
+
+	.overlay-gradient-white {
+		background: var(--overlay-gradient-white);
+	}
+
+	.lato-thin {
+		font-family: "Lato", sans-serif;
+		font-weight: 100;
+		font-style: normal;
+	}
+
+	.lato-light {
+		font-family: "Lato", sans-serif;
+		font-weight: 300;
+		font-style: normal;
+	}
+
+	.lato-regular {
+		font-family: "Lato", sans-serif;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	.lato-bold {
+		font-family: "Lato", sans-serif;
+		font-weight: 700;
+		font-style: normal;
+	}
+
+	.lato-black {
+		font-family: "Lato", sans-serif;
+		font-weight: 900;
+		font-style: normal;
+	}
+
+	.lato-thin-italic {
+		font-family: "Lato", sans-serif;
+		font-weight: 100;
+		font-style: italic;
+	}
+
+	.lato-light-italic {
+		font-family: "Lato", sans-serif;
+		font-weight: 300;
+		font-style: italic;
+	}
+
+	.lato-regular-italic {
+		font-family: "Lato", sans-serif;
+		font-weight: 400;
+		font-style: italic;
+	}
+
+	.lato-bold-italic {
+		font-family: "Lato", sans-serif;
+		font-weight: 700;
+		font-style: italic;
+	}
+
+	.lato-black-italic {
+		font-family: "Lato", sans-serif;
+		font-weight: 900;
+		font-style: italic;
+	}
+
+	@keyframes flash {
+		0% {
+			opacity: 1;
+		}
+
+		50%,
+		100% {
+			opacity: 0.5;
+		}
+	}
+}
