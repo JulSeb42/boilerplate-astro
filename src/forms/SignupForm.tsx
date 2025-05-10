@@ -1,14 +1,20 @@
 import { useState } from "react"
+import {} from "astro"
 import { toast } from "react-toastify"
-import { emailRegex, passwordRegex } from "@julseb-lib/utils"
+import {
+	emailRegex,
+	passwordRegex,
+	getRandomString,
+	getRandomAvatar,
+} from "@julseb-lib/utils"
 import { Form, Input, InputCheck } from "components"
 import { PATHS, COMMON_TEXTS } from "data"
 
 export const SignupForm = () => {
 	const [inputs, setInputs] = useState({
-		fullName: "",
-		email: "",
-		password: "",
+		fullName: "Julien Sebag",
+		email: "julien@email.com",
+		password: "Password42",
 	})
 	const [saveEmail, setSaveEmail] = useState<boolean>(false)
 
@@ -61,6 +67,29 @@ export const SignupForm = () => {
 						: undefined,
 			})
 			return
+		}
+
+		const requestBody = {
+			...inputs,
+			verified: false,
+			verifyToken: getRandomString(),
+			avatar: getRandomAvatar(),
+			role: "user",
+		}
+
+		if (saveEmail) {
+			localStorage.setItem("email", inputs.email)
+		}
+
+		try {
+			await fetch("/api/users", {
+				method: "POST",
+				body: JSON.stringify(requestBody),
+			})
+			window.location.href = "/thank-you"
+		} catch (err) {
+			console.log(err)
+			toast("An error occured, try again later", { type: "error" })
 		}
 	}
 

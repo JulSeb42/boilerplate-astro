@@ -15,6 +15,7 @@ import {
 	generateLayout,
 	generatePage,
 	generateType,
+	generateService,
 	/* Prepend import - DO NOT REMOVE */
 } from "./generators"
 
@@ -48,5 +49,6 @@ export default (plop: NodePlopAPI) => {
 	generateLayout(plop) // yarn plop:l
 	generatePage(plop) // yarn plop:p
 	generateType(plop) // yarn plop:ty
+	generateService(plop) // yarn plop:s
 	/* Prepend function - DO NOT REMOVE */
 }

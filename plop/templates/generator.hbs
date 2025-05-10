@@ -1,4 +1,4 @@
-import type { NodePlopAPI } from "plop"
+import type { NodePlopAPI, ActionType } from "plop"
 import { BASE_PATH } from "../utils"
 
 export default (plop: NodePlopAPI) => {
@@ -9,7 +9,7 @@ export default (plop: NodePlopAPI) => {
         prompts: [],
         actions: [],
         // actions: data => {
-        //     const actions = []
+        //     const actions: Array<ActionType> = []
         //     return actions
         // },
     })

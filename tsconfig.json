@@ -11,6 +11,6 @@
 		"jsxImportSource": "react"
 	},
 	"extends": ["astro/tsconfigs/strict", "astro/tsconfigs/base"],
-	"include": ["client/.astro/types.d.ts", "**/*"],
+	"include": [".astro/types.d.ts", "**/*", "src/env.d.ts"],
 	"exclude": ["dist"]
 }
