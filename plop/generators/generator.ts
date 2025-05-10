@@ -1,5 +1,5 @@
 import type { NodePlopAPI } from "plop"
-import { toPascalCase } from "../utils"
+import { toPascalCase } from "utils"
 
 export default (plop: NodePlopAPI) => {
 	const { setGenerator } = plop

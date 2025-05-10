@@ -1,5 +1,5 @@
 import type { NodePlopAPI, ActionType } from "plop"
-import { toKebabCase, toPascalCase, toConstantCase } from "../utils"
+import { toKebabCase, toPascalCase, toConstantCase } from "utils"
 import { BASE_PATH } from "../utils"
 
 export default (plop: NodePlopAPI) => {

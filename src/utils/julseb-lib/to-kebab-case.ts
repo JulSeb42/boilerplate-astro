@@ -1,3 +1,5 @@
+/*=============================================== To kebab case ===============================================*/
+
 import { slugify } from "./slugify"
 
 /**
@@ -7,5 +9,5 @@ import { slugify } from "./slugify"
  */
 
 export function toKebabCase(string: string): string {
-	return slugify(string)
+    return slugify(string)
 }

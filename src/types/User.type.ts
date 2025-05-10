@@ -6,14 +6,18 @@ export type User = {
 	email: string
 	fullName: string
 	password: string
-	verified: boolean
-	verifyToken: string
-	resetToken?: string
-	avatar?: string | undefined | null
+	// verified: boolean
+	// verifyToken: string
+	// resetToken?: string
+	// avatar?: string | undefined | null
 	role: UserRole
 }
 
-export type EditAccountFormData = Pick<User, "fullName" | "avatar">
+export type EditAccountFormData = Pick<
+	User,
+	"fullName"
+	// | "avatar"
+>
 
 export type EditPasswordFormData = {
 	oldPassword: string
