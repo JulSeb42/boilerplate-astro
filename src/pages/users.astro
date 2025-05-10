@@ -1,11 +1,26 @@
 ---
-import { toPascalCase } from "@julseb-lib/utils"
 import { Page } from "layouts"
 import { Text } from "components"
+import { getAllUsers } from "lib"
+import { COMMON_TEXTS } from "data"
+
+const users = await getAllUsers()
+
+if (!users) {
+	throw new Error(COMMON_TEXTS.ERRORS.SEARCH_RESULTS_EMPTY)
+}
 ---
 
 <Page title="Users">
-	<Text tag="h1">All {toPascalCase("users")}</Text>
+	<Text tag="h1">All users</Text>
+
+	{
+		users?.map(user => (
+			<Text>
+				{user.fullName}, {user.email}
+			</Text>
+		))
+	}
 </Page>
 
 <script></script>

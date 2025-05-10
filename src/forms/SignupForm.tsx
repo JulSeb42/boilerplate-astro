@@ -1,19 +1,17 @@
 import { useState } from "react"
-import {} from "astro"
-import { toast } from "react-toastify"
 import {
 	emailRegex,
 	passwordRegex,
 	getRandomString,
 	getRandomAvatar,
 } from "@julseb-lib/utils"
-import { Form, Input, InputCheck } from "components"
+import { Form, Input, InputCheck, ErrorMessage } from "components"
 import { PATHS, COMMON_TEXTS } from "data"
 
 export const SignupForm = () => {
 	const [inputs, setInputs] = useState({
 		fullName: "Julien Sebag",
-		email: "julien@email.com",
+		email: "julien.sebag@email.com",
 		password: "Password42",
 	})
 	const [saveEmail, setSaveEmail] = useState<boolean>(false)
@@ -27,6 +25,9 @@ export const SignupForm = () => {
 		email: undefined,
 		password: undefined,
 	})
+	const [errorMessage, setErrorMessage] = useState<undefined | string>(
+		undefined,
+	)
 
 	const handleInputs = (e: ChangeEvent<HTMLInputElement>) =>
 		setInputs({ ...inputs, [e.target.id]: e.target.value })
@@ -81,16 +82,16 @@ export const SignupForm = () => {
 			localStorage.setItem("email", inputs.email)
 		}
 
-		try {
-			await fetch("/api/users", {
-				method: "POST",
-				body: JSON.stringify(requestBody),
-			})
-			window.location.href = "/thank-you"
-		} catch (err) {
-			console.log(err)
-			toast("An error occured, try again later", { type: "error" })
-		}
+		await fetch("/api/users", {
+			method: "POST",
+			body: JSON.stringify(requestBody),
+		}).then(res => {
+			if (res.status === 400) {
+				setErrorMessage(res.statusText)
+				return
+			}
+			window.location.href = "/auth/thank-you"
+		})
 	}
 
 	return (
@@ -140,6 +141,8 @@ export const SignupForm = () => {
 				checked={saveEmail}
 				onChange={handleCheck}
 			/>
+
+			<ErrorMessage message={errorMessage} />
 		</Form>
 	)
 }

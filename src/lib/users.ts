@@ -6,8 +6,7 @@ export const getAllUsers = async () => {
 	return users
 }
 
-export const createUser = async (newUser: Partial<User>) => {
-	// @ts-ignore
-	const user = await (await Users()).insert(newUser)
+export const createUser = async (newUser: User) => {
+	const user = await (await Users()).insertOne(newUser)
 	return user
 }

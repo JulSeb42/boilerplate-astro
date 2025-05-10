@@ -1,8 +1,10 @@
+import type { ObjectId } from "mongodb"
+
 export const userRoles = { user: "user", admin: "admin" } as const
 export type UserRole = keyof typeof userRoles
 
 export type User = {
-	_id: string
+	_id: ObjectId
 	email: string
 	fullName: string
 	password: string
