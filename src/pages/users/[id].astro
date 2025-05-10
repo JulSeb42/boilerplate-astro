@@ -1,0 +1,14 @@
+---
+import { Page } from "layouts"
+import { Text } from "components"
+import { getUser } from "lib"
+import type { User } from "types"
+
+const { id } = Astro.params
+
+const foundUser: User = (await getUser(id!)) as User
+---
+
+<Page title={foundUser?.fullName}>
+	<Text tag="h1">{foundUser?.fullName}</Text>
+</Page>

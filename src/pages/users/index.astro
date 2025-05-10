@@ -2,7 +2,7 @@
 import { Page } from "layouts"
 import { Text } from "components"
 import { getAllUsers } from "lib"
-import { COMMON_TEXTS } from "data"
+import { COMMON_TEXTS, PATHS } from "data"
 
 const users = await getAllUsers()
 
@@ -17,10 +17,10 @@ if (!users) {
 	{
 		users?.map(user => (
 			<Text>
-				{user.fullName}, {user.email}
+				<a href={PATHS.USER(user._id.toHexString())}>
+					{user.fullName}, {user.email}
+				</a>
 			</Text>
 		))
 	}
 </Page>
-
-<script></script>

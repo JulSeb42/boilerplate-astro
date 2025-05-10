@@ -6,7 +6,7 @@ import {
 	getRandomAvatar,
 } from "@julseb-lib/utils"
 import { Form, Input, InputCheck, ErrorMessage } from "components"
-import { PATHS, COMMON_TEXTS } from "data"
+import { PATHS, COMMON_TEXTS, SERVER_PATHS } from "data"
 
 export const SignupForm = () => {
 	const [inputs, setInputs] = useState({
@@ -82,7 +82,7 @@ export const SignupForm = () => {
 			localStorage.setItem("email", inputs.email)
 		}
 
-		await fetch("/api/users", {
+		await fetch(SERVER_PATHS.USER.CREATE_USER, {
 			method: "POST",
 			body: JSON.stringify(requestBody),
 		}).then(res => {
@@ -90,7 +90,7 @@ export const SignupForm = () => {
 				setErrorMessage(res.statusText)
 				return
 			}
-			window.location.href = "/auth/thank-you"
+			window.location.href = PATHS.THANK_YOU
 		})
 	}
 

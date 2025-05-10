@@ -1,8 +1,9 @@
 export const PATHS = {
 	ROOT: "/",
-	ABOUT: "/about",
-	LOGIN: "/auth/login",
-	SIGNUP: "/auth/signup",
+	LOGIN: "/login",
+	SIGNUP: "/signup",
+	THANK_YOU: "/signup/thank-you",
 	USERS: "/users",
+	USER: (id = ":id") => `/users/${id}`,
 	/* Prepend new page - DO NOT REMOVE */
 }

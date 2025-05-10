@@ -38,8 +38,9 @@ export const SERVER_PATHS = {
 	},
 	USER: {
 		ROOT: SERVER_PATH_ROOTS.USER,
-		ALL_USERS: "/all-users",
+		ALL_USERS: "/users",
 		GET_USER: (id = ":id") => `/user/${id}`,
+		CREATE_USER: "/api/users"
 	},
 	/* Prepend server path - DO NOT REMOVE */
 }
