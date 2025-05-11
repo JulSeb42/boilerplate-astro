@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { toast } from "react-toastify"
 import {
 	emailRegex,
 	passwordRegex,
@@ -90,7 +91,8 @@ export const SignupForm = () => {
 				setErrorMessage(res.statusText)
 				return
 			}
-			window.location.href = PATHS.THANK_YOU
+			toast.success("Your account was created!")
+			// window.location.href = PATHS.THANK_YOU
 		})
 	}
 

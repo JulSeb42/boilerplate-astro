@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs"
 import { createUser, getAllUsers } from "lib"
 import { COMMON_TEXTS } from "data"
-import { emailRegex, passwordRegex } from "utils"
+import { passwordRegex } from "utils"
 import type { User } from "types"
 
 export const GET = async () => {
@@ -46,9 +46,4 @@ export const POST = async ({ request }: { request: Request }) => {
 	})
 
 	return new Response(JSON.stringify(user), { status: 200 })
-
-	// const newUser = await request.json()
-	// const user = await createUser(newUser)
-
-	// return new Response(JSON.stringify(user), { status: 200 })
 }
