@@ -16,6 +16,7 @@ import {
 	generatePage,
 	generateType,
 	generateService,
+	generateForm,
 	/* Prepend import - DO NOT REMOVE */
 } from "./generators"
 
@@ -50,5 +51,6 @@ export default (plop: NodePlopAPI) => {
 	generatePage(plop) // yarn plop:p
 	generateType(plop) // yarn plop:ty
 	generateService(plop) // yarn plop:s
+	generateForm(plop) // yarn plop:f
 	/* Prepend function - DO NOT REMOVE */
 }

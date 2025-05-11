@@ -1,0 +1,24 @@
+import { useState } from "react"
+import { Form, Input, ErrorMessage } from "components"
+
+export const {{>pascalName}}Form = () => {
+	const [inputs, setInputs] = useState({
+		
+	})
+
+	const handleInputs = (e: ChangeEvent<HTMLInputElement>) =>
+		setInputs({ ...inputs, [e.target.id]: e.target.value })
+
+	const handleSubmit = (e: FormEvent) => {
+		e.preventDefault()
+	}
+
+	return (
+		<Form
+			buttonPrimary=""
+			onSubmit={handleSubmit}
+		>
+			
+		</Form>
+	)
+}

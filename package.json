@@ -15,7 +15,8 @@
 		"plop:l": "yarn plop layout",
 		"plop:p": "yarn plop page",
 		"plop:ty": "yarn plop type",
-		"plop:s": "yarn plop service"
+		"plop:s": "yarn plop service",
+		"plop:f": "yarn plop form"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",
@@ -28,9 +29,11 @@
 		"axios": "^1.9.0",
 		"bcryptjs": "^3.0.2",
 		"clsx": "^2.1.1",
+		"jose": "^6.0.11",
 		"jsonwebtoken": "^9.0.2",
 		"mongodb": "^6.16.0",
 		"mongoose": "^8.14.2",
+		"nanoid": "^5.1.5",
 		"nanostores": "^1.0.1",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",

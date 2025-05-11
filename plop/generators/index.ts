@@ -5,4 +5,5 @@ export { default as generateLayout } from "./layout.js"
 export { default as generatePage } from "./page.js"
 export { default as generateType } from "./type.js"
 export { default as generateService } from "./service.js"
+export { default as generateForm } from "./form.js"
 /* Prepend export - DO NOT REMOVE */
